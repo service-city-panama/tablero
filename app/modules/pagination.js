@@ -1,86 +1,33 @@
-const paginationModule = {
-    initializePagination: function (data, itemsPerPage, renderFunction, mostrarDatos) {
-        // Calcula el número total de páginas
-        const totalPages = Math.ceil(data.length / itemsPerPage);
+let data = []; // Aquí deberías tener tus datos de tabla
+let currentPage = 1;
+let rowsPerPage = 10;
 
-        // Muestra la primera página por defecto
-        renderFunction(1);
+function displayData() {
+    const table = document.getElementById("tableroChorrera");
+    const start = (currentPage - 1) * rowsPerPage;
+    const end = start + rowsPerPage;
+    const paginatedData = data.slice(start, end);
+    table.innerHTML = "";
+    paginatedData.forEach(item => {
+        const row = table.insertRow();
+        // Aquí deberías insertar las celdas de la fila según tus datos
+    });
+}
 
-        // Agrega event listeners a los botones de paginación
-        document.getElementById("pagePrevius").addEventListener("click", () => {
-            paginationModule.changePage(-1, totalPages, renderFunction, mostrarDatos);
-        });
+function goToPage(page) {
+    currentPage = page;
+    displayData();
+}
 
-        document.getElementById("pageNext").addEventListener("click", () => {
-            paginationModule.changePage(1, totalPages, renderFunction, mostrarDatos);
-        });
+function changeRowsPerPage(value) {
+    rowsPerPage = value;
+    displayData();
+}
 
-        // Agrega event listeners para cada página
-        for (let i = 1; i <= totalPages; i++) {
-            document.getElementById(`page0${i}`).addEventListener("click", () => {
-                currentPage = i;
-                mostrarDatos();
-            });
-        }
-    },
-
-
-       // Agrega event listeners para cada página
-       for (let i = 1; i <= totalPages; i++) {
-
-        document.getElementById("page01").addEventListener("click", () => {
-            currentPage = 1;
-            mostrarDatos();
-        });
-
-        document.getElementById("page02").addEventListener("click", () => {
-            currentPage = 2;
-            mostrarDatos();
-        });
-
-        document.getElementById("page03").addEventListener("click", () => {
-            currentPage = 3;
-            mostrarDatos();
-        });
-
-        document.getElementById("page04").addEventListener("click", () => {
-            currentPage = 4;
-            mostrarDatos();
-        });
-
-        document.getElementById("page05").addEventListener("click", () => {
-            currentPage = 5;
-            mostrarDatos();
-        });
-
-        document.getElementById("page06").addEventListener("click", () => {
-            currentPage = 6;
-            mostrarDatos();
-        });
-    },
-
-    changePage: function (direction, totalPages, renderFunction) {
-        // Obtiene la página actual
-        let currentPage = parseInt(document.querySelector(".active.page-item").innerText);
-
-        // Calcula la nueva página
-        let newPage = currentPage + direction;
-
-        // Verifica los límites de la paginación
-        if (newPage < 1) {
-            newPage = 1;
-        } else if (newPage > totalPages) {
-            newPage = totalPages;
-        }
-
-        // Renderiza la nueva página
-        renderFunction(newPage);
-        mostrarDatos(); // Llama a mostrarDatos después de cambiar de página
-    }
-};
-
-export default paginationModule;
+document.addEventListener("DOMContentLoaded", function () {
+    // Llama a la función displayData solo cuando el DOM esté completamente cargado
+    displayData();
+});
 
 
-
-
+export { data, displayData, goToPage, changeRowsPerPage };

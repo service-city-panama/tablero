@@ -16,11 +16,13 @@ const firebaseConfig = {
 const firebaseApp = initializeApp(firebaseConfig);
 const database = getDatabase(firebaseApp);
 
+
+
 document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector("form");
     const tabla = document.getElementById("tableroChorrera");
     const submitBtn = document.getElementById("submitForm-btn");
-    const itemsPerPage = 20; // Número de elementos por página
+    const itemsPerPage = 500; // Número de elementos por página
     let currentPage = 1; // Página actual
     let isSubmitting = false;
 
@@ -149,6 +151,36 @@ document.addEventListener("DOMContentLoaded", function () {
             };
         };
     });
+
+// Accion de Desplazamiento ===========================
+// Botón de desplazamiento hacia Arriba/Abajo
+const scrollToBottomBtn = document.getElementById("scrollToBottomBtn");
+const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+// Evento de clic en el botón de desplazamiento hacia abajo
+scrollToBottomBtn.addEventListener("click", function() {
+    const lastRow = tabla.rows[tabla.rows.length - 1];
+    lastRow.scrollIntoView({ behavior: "smooth", block: "end" });
+});
+
+// Evento de clic en el botón de desplazamiento hacia arriba
+scrollToTopBtn.addEventListener("click", function() {
+    const firstRow = tabla.rows[0];
+    firstRow.scrollIntoView({ behavior: "smooth", block: "start" });
+}); // Accion de Desplazamiento ===========================
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     // Evento para eliminar una entrada
     tabla.addEventListener("click", function (event) {

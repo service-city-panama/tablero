@@ -34,145 +34,143 @@
       </nav>
     </header>
 
-    <!-- Sticky Form -->
-    <section class="title display-flex-center">
-      <div class="title-container display-center">
-        <form class="row g-3 needs-validation" novalidate>
-          <h1 class="display-flex-center">The West Board</h1>
+    <body>
+      <!-- Sticky Form -->
+      <section class="title display-flex-center">
+        <div class="title-container display-center">
+          <form class="row g-3 needs-validation" novalidate>
+            <h1 class="display-flex-center">The West Board</h1>
 
-          <div class="inputBox display-flex-center">
-            <!-- Input #unidad-->
-            <input
-              type="text"
-              class="form-control"
-              id="validationCustom01"
-              placeholder="#Unidad"
-              required
-            />
+            <div class="inputBox display-flex-center">
+              <!-- Input #unidad-->
+              <input
+                type="text"
+                class="form-control"
+                id="validationCustom01"
+                placeholder="#Unidad"
+                required
+              />
 
-            <!-- Input Select-->
-            <div class="select-input">
-              <select class="form-select" id="validationCustom04" required>
-                <option selected disabled value="">Seleccionar...</option>
-                <option>Espera</option>
-                <option>Apoyo</option>
-                <option>Taller</option>
-              </select>
-              <div class="invalid-feedback">Selecciona una opciónn.</div>
+              <!-- Input Select-->
+              <div class="select-input">
+                <select class="form-select" id="validationCustom04" required>
+                  <option selected disabled value="">Seleccionar...</option>
+                  <option>Espera</option>
+                  <option>Apoyo</option>
+                  <option>Taller</option>
+                </select>
+                <div class="invalid-feedback">Selecciona una opciónn.</div>
+              </div>
             </div>
-          </div>
 
-          <!-- Input Button -->
-          <div class="submit-btn display-center">
-            <button class="btn" type="submit" id="submitForm-btn">
-              Anotar
-            </button>
-          </div>
+            <!-- Input Button -->
+            <div class="submit-btn display-center">
+              <button class="btn" type="submit" id="submitForm-btn">
+                Anotar
+              </button>
+            </div>
+          </form>
+        </div>
+      </section>
 
-          <nav aria-label="Page navigation example">
-            <ul class="pagination justify-content-center">
-              <li class="page-item" id="pagePrevius">
-                <a class="page-link" href="#"><i class="bi bi-arrow-left-circle"></i></a>
-              </li>
-              <select id="rowsPerPage">
-                <option value="10">10</option>
-                <option value="20">20</option>
-                <option value="30">30</option>
-                <option value="40">40</option>
-                <option value="50">50</option>
-              </select>
-              <li class="page-item" id="pageNext">
-                <a class="page-link" href="#"><i class="bi bi-arrow-right-circle"></i></a>
-              </li>
-            </ul>
-          </nav>
-          
-   
-
-        </form>
+      <div class="display-flex-center">
+        <button id="scrollToBottomBtn" class="btn btn-primary">
+          Ir al final de la tabla
+        </button>
       </div>
-    </section>
 
-    <!-- Main Content -->
-    <main class="main-content">
-      <!-- Main Content - Container -->
-      <div class="main-container clr-white">
-        <!-- Table -->
-        <table class="table">
-          <!-- Table - Head -->
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Unidad</th>
-              <th>Estado</th>
-              <th>Cambiar Estado</th>
-              <th>Eliminar</th>
-            </tr>
-          </thead>
+      <!-- Main Content -->
+      <main class="main-content">
+        <!-- Main Content - Container -->
+        <div class="main-container clr-white">
+          <!-- Table -->
+          <table class="table">
+            <!-- Table - Head -->
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Unidad</th>
+                <th>Estado</th>
+                <th>Cambiar Estado</th>
+                <th>Eliminar</th>
+              </tr>
+            </thead>
 
-          <!-- Table Body -->
-          <tbody id="tableroChorrera">
-            <tr>
-              <td>${filaNumero++}</td>
-              <td>${childData.unidad}</td>
-              <td class="estado-cell">${childData.estado}</td>
+            <!-- Table Body -->
+            <tbody id="tableroChorrera">
+              <tr>
+                <td>${filaNumero++}</td>
+                <td>${childData.unidad}</td>
+                <td class="estado-cell">${childData.estado}</td>
 
-              <!-- Table - Body / icon delete -->
-              <td>
-                <button
-                  type="button"
-                  class="button"
-                  data-id="${childData.Uid}"
-                  id="delete-btn"
-                >
-                  <i class="bi bi-journal-x"></i>
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+                <!-- Table - Body / icon delete -->
+                <td>
+                  <button
+                    type="button"
+                    class="button"
+                    data-id="${childData.Uid}"
+                    id="delete-btn"
+                  >
+                    <i class="bi bi-journal-x"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </main>
+
+      <!-- Boton para subir hacia la primera fila de la tabla -->
+      <div class="display-flex-center">
+        <button id="scrollToTopBtn" class="btn btn-primary">
+          Ir al inicio de la tabla
+        </button>
       </div>
-    </main>
 
-    <!-- Modal HTML -->
-    <div
-      class="modal fade"
-      id="confirmDeleteModal"
-      tabindex="-1"
-      aria-labelledby="confirmDeleteModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="confirmDeleteModalLabel">
-              Confirmar Eliminación
-            </h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            ¿Estás seguro de que deseas eliminar este elemento?
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              Cancelar
-            </button>
-            <button type="button" class="btn btn-danger" id="confirmDeleteBtn">
-              Eliminar
-            </button>
+      <!-- Modal HTML -->
+      <div
+        class="modal fade"
+        id="confirmDeleteModal"
+        tabindex="-1"
+        aria-labelledby="confirmDeleteModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="confirmDeleteModalLabel">
+                Confirmar Eliminación
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              ¿Estás seguro de que deseas eliminar este elemento?
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Cancelar
+              </button>
+              <button
+                type="button"
+                class="btn btn-danger"
+                id="confirmDeleteBtn"
+              >
+                Eliminar
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </body>
 
     <!-- Bootstrap Script -->
     <script

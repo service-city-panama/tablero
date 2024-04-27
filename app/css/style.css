@@ -119,8 +119,14 @@ button span {
 .title a {
     font-size: 1.5em;
     font-weight: 500;
+    border: 1px solid #999;
 }
-
+.title .rowsPerPage {
+    margin: 0 0 0 0;
+    padding: 8px;
+    width: max-content;
+    border: 1px solid #999;
+}
 /* Main */
 .main-content {
     display: flex;
