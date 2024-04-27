@@ -118,33 +118,58 @@ document.addEventListener("DOMContentLoaded", function () {
                 tabla.innerHTML += row;
             });
 
-            // Agregar botones de paginación
-            const totalPages = Math.ceil(data.length / itemsPerPage);
-            const pagination = document.createElement("div");
-            pagination.innerHTML = `
-                <button class="btn btn-primary" id="prevPage">Anterior</button>
-                <button class="btn btn-primary" id="nextPage">Siguiente</button>
-                <span>Página ${currentPage} de ${totalPages}</span>
-            `;
-            tabla.insertAdjacentElement("afterend", pagination);
+  // Agrega event listeners a los botones de paginación HTML
+document.getElementById("pagePrevius").addEventListener("click", () => {
+    if (currentPage > 1) {
+        currentPage--;
+        mostrarDatos();
+    }
+});
 
-            // Manejar eventos de botones de paginación
-            const prevPageBtn = document.getElementById("prevPage");
-            const nextPageBtn = document.getElementById("nextPage");
+document.getElementById("pageNext").addEventListener("click", () => {
+    if (currentPage < totalPages) {
+        currentPage++;
+        mostrarDatos();
+    }
+});
 
-            prevPageBtn.addEventListener("click", () => {
-                if (currentPage > 1) {
-                    currentPage--;
-                    mostrarDatos();
-                }
-            });
+document.getElementById("page01").addEventListener("click", () => {
+    currentPage = 1;
+    mostrarDatos();
+});
 
-            nextPageBtn.addEventListener("click", () => {
-                if (currentPage < totalPages) {
-                    currentPage++;
-                    mostrarDatos();
-                }
-            });
+document.getElementById("page02").addEventListener("click", () => {
+    currentPage = 2;
+    mostrarDatos();
+});
+
+document.getElementById("page03").addEventListener("click", () => {
+    currentPage = 3;
+    mostrarDatos();
+});
+
+document.getElementById("page01").addEventListener("click", () => {
+    currentPage = 4;
+    mostrarDatos();
+});
+
+document.getElementById("page02").addEventListener("click", () => {
+    currentPage = 5;
+    mostrarDatos();
+});
+
+document.getElementById("page03").addEventListener("click", () => {
+    currentPage = 6;
+    mostrarDatos();
+});
+
+
+
+
+
+
+
+
         });
     }
 

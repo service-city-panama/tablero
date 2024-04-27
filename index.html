@@ -36,11 +36,12 @@
 
     <!-- Sticky Form -->
     <section class="title display-flex-center">
-      <div class="title-container display-flex-center">
+      <div class="title-container display-center">
         <form class="row g-3 needs-validation" novalidate>
-          <h1 class="display-flex-center">Tablero de Chorrera</h1>
-          <div class="display-flex-center">
-            <!-- Input -->
+          <h1 class="display-flex-center">The West Board</h1>
+
+          <div class="inputBox display-flex-center">
+            <!-- Input #unidad-->
             <input
               type="text"
               class="form-control"
@@ -49,7 +50,7 @@
               required
             />
 
-            <!-- Select Input -->
+            <!-- Input Select-->
             <div class="select-input">
               <select class="form-select" id="validationCustom04" required>
                 <option selected disabled value="">Seleccionar...</option>
@@ -57,20 +58,34 @@
               </select>
               <div class="invalid-feedback">Selecciona una opciónn.</div>
             </div>
-
-            <!-- Submit Input -->
-            <div class="submit-btn">
-              <button class="btn" type="submit" id="submitForm-btn">
-                Anotar
-              </button>
-            </div>
           </div>
+
+          <!-- Input Button -->
+          <div class="submit-btn display-center">
+            <button class="btn" type="submit" id="submitForm-btn">
+              Anotar
+            </button>
+          </div>
+
+          <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+              <li class="page-item" id="pagePrevius">
+                <a class="page-link"><i class="bi bi-arrow-left-circle"></i></a>
+              </li>
+              <li class="page-item" id="page01"><a class="page-link">1</a></li>
+              <li class="page-item" id="page02"><a class="page-link">2</a></li>
+              <li class="page-item" id="page03"><a class="page-link">3</a></li>
+              <li class="page-item" id="page04"><a class="page-link">4</a></li>
+              <li class="page-item" id="page05"><a class="page-link">5</a></li>
+              <li class="page-item" id="page06"><a class="page-link">6</a></li>
+              <li class="page-item" id="pageNext">
+                <a class="page-link"><i class="bi bi-arrow-right-circle"></i></a>
+              </li>
+            </ul>
+          </nav>
         </form>
       </div>
     </section>
-
-    <!-- Contenedor para los botones de paginación -->
-    <div id="pagination-container" class="pagination-container"></div>
 
     <!-- Main Content -->
     <main class="main-content">
