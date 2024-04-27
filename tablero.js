@@ -52,10 +52,10 @@ document.addEventListener("DOMContentLoaded", function () {
                     .then(() => {
                         // Limpia los campos del formulario
                         form.reset();
-                        // Desbloquea el formulario después de 10 segundos
+                        // Desbloquea el formulario después de 5 segundos
                         setTimeout(() => {
                             isSubmitting = false;
-                        }, 10000);
+                        }, 5000);
                         // Recarga la página después de enviar el formulario
                         setTimeout(() => {
                             location.reload();
@@ -88,9 +88,14 @@ document.addEventListener("DOMContentLoaded", function () {
             const endIndex = startIndex + itemsPerPage;
             const paginatedData = data.slice(startIndex, endIndex);
 
+            
+        // Inicializa el contador de fila
+        let filaNumero = startIndex + 1;
+
             paginatedData.forEach(childData => {
                 const row = `
                 <tr>
+                    <td>${filaNumero++}</td>
                     <td>${childData.unidad}</td>
                     <td>${childData.estado}</td>
                     <td>
@@ -99,13 +104,13 @@ document.addEventListener("DOMContentLoaded", function () {
                             <option ${childData.estado === 'Pendiente' ? 'selected' : ''}>Pendiente</option>
                             <option ${childData.estado === 'En pesa' ? 'selected' : ''}>En pesa</option>
                             <option ${childData.estado === 'Llenó' ? 'selected' : ''}>Llenó</option>
-                            <option ${childData.estado === 'Apoyo' ? 'selected' : ''}>- Apoyo</option>
-                            <option ${childData.estado === 'Taller' ? 'selected' : ''}>- Taller</option>
-                            <option ${childData.estado === 'Pidio Permiso' ? 'selected' : ''}>- Permiso</option>
-                            <option ${childData.estado === 'Revision X' ? 'selected' : ''}>- Revision X</option>
-                            <option ${childData.estado === 'Revision 2X' ? 'selected' : ''}>- Revision 2X</option>
-                            <option ${childData.estado === 'Revision 3X' ? 'selected' : ''}>- Revision 3X</option>
-                            <option ${childData.estado === 'Revision 4X' ? 'selected' : ''}>- Revision 4X</option>
+                            <option ${childData.estado === 'Apoyo' ? 'selected' : ''}>Apoyo</option>
+                            <option ${childData.estado === 'Taller' ? 'selected' : ''}>Taller</option>
+                            <option ${childData.estado === 'Pidio Permiso' ? 'selected' : ''}>Permiso</option>
+                            <option ${childData.estado === 'Revision X' ? 'selected' : ''}>Revision X</option>
+                            <option ${childData.estado === 'Revision 2X' ? 'selected' : ''}>Revision 2X</option>
+                            <option ${childData.estado === 'Revision 3X' ? 'selected' : ''}>Revision 3X</option>
+                            <option ${childData.estado === 'Revision 4X' ? 'selected' : ''}>Revision 4X</option>
                         </select>
                     </td>
                     <td>
@@ -117,59 +122,6 @@ document.addEventListener("DOMContentLoaded", function () {
                 `;
                 tabla.innerHTML += row;
             });
-
-  // Agrega event listeners a los botones de paginación HTML
-document.getElementById("pagePrevius").addEventListener("click", () => {
-    if (currentPage > 1) {
-        currentPage--;
-        mostrarDatos();
-    }
-});
-
-document.getElementById("pageNext").addEventListener("click", () => {
-    if (currentPage < totalPages) {
-        currentPage++;
-        mostrarDatos();
-    }
-});
-
-document.getElementById("page01").addEventListener("click", () => {
-    currentPage = 1;
-    mostrarDatos();
-});
-
-document.getElementById("page02").addEventListener("click", () => {
-    currentPage = 2;
-    mostrarDatos();
-});
-
-document.getElementById("page03").addEventListener("click", () => {
-    currentPage = 3;
-    mostrarDatos();
-});
-
-document.getElementById("page01").addEventListener("click", () => {
-    currentPage = 4;
-    mostrarDatos();
-});
-
-document.getElementById("page02").addEventListener("click", () => {
-    currentPage = 5;
-    mostrarDatos();
-});
-
-document.getElementById("page03").addEventListener("click", () => {
-    currentPage = 6;
-    mostrarDatos();
-});
-
-
-
-
-
-
-
-
         });
     }
 

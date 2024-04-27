@@ -6,10 +6,14 @@
     --white: #ffffff;
     --yellow: #ffb703;
     --blue: #1e90ff;
+   
 }
-.clr-white {
-    background-color: #ffffff;
-}
+.clr-white {background-color: #ffffff;}
+.blue { color: var(--blue);}
+.yellow { color: var(--yellow);}
+.red { color: crimson;}
+.green { color: greenyellow;}
+
 body {
     font-family: 'poppins';
 }

@@ -55,6 +55,8 @@
               <select class="form-select" id="validationCustom04" required>
                 <option selected disabled value="">Seleccionar...</option>
                 <option>Espera</option>
+                <option>Apoyo</option>
+                <option>Taller</option>
               </select>
               <div class="invalid-feedback">Selecciona una opciónn.</div>
             </div>
@@ -70,19 +72,23 @@
           <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center">
               <li class="page-item" id="pagePrevius">
-                <a class="page-link"><i class="bi bi-arrow-left-circle"></i></a>
+                <a class="page-link" href="#"><i class="bi bi-arrow-left-circle"></i></a>
               </li>
-              <li class="page-item" id="page01"><a class="page-link">1</a></li>
-              <li class="page-item" id="page02"><a class="page-link">2</a></li>
-              <li class="page-item" id="page03"><a class="page-link">3</a></li>
-              <li class="page-item" id="page04"><a class="page-link">4</a></li>
-              <li class="page-item" id="page05"><a class="page-link">5</a></li>
-              <li class="page-item" id="page06"><a class="page-link">6</a></li>
+              <select id="rowsPerPage">
+                <option value="10">10</option>
+                <option value="20">20</option>
+                <option value="30">30</option>
+                <option value="40">40</option>
+                <option value="50">50</option>
+              </select>
               <li class="page-item" id="pageNext">
-                <a class="page-link"><i class="bi bi-arrow-right-circle"></i></a>
+                <a class="page-link" href="#"><i class="bi bi-arrow-right-circle"></i></a>
               </li>
             </ul>
           </nav>
+          
+   
+
         </form>
       </div>
     </section>
@@ -96,6 +102,7 @@
           <!-- Table - Head -->
           <thead>
             <tr>
+              <th>#</th>
               <th>Unidad</th>
               <th>Estado</th>
               <th>Cambiar Estado</th>
@@ -106,19 +113,9 @@
           <!-- Table Body -->
           <tbody id="tableroChorrera">
             <tr>
-              <!-- Table - Body / Edit Icon -->
-              <td class="display-flex-center">
-                <button
-                  type="submit"
-                  class="edit-btn"
-                  id="edit-btn"
-                  data-id="${childData.Uid}"
-                >
-                  <i class="bi bi-pencil-square"></i>
-                </button>
-              </td>
-              <td>Lao</td>
-              <td class="estado-column">Coding...</td>
+              <td>${filaNumero++}</td>
+              <td>${childData.unidad}</td>
+              <td class="estado-cell">${childData.estado}</td>
 
               <!-- Table - Body / icon delete -->
               <td>
