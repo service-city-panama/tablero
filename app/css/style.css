@@ -1,0 +1,175 @@
+@import 'https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap';
+@import "https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css";
+
+:root {
+    --dark: #001233;
+    --white: #ffffff;
+    --yellow: #ffb703;
+    --blue: #1e90ff;
+}
+.clr-white {
+    background-color: #ffffff;
+}
+body {
+    font-family: 'poppins';
+}
+
+button span {
+    margin: 0 5px 0 5px;
+}
+
+.display-center {
+    display: grid;
+    place-items: center;
+}
+
+.display-flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fs-m {
+    font-size: small;
+}
+
+.fs-xxl {
+    font-size: xx-large;
+}
+
+.mg-10 {
+    margin: 0 10px 0 10px;
+}
+
+.max-w-400 {
+    width: 400px;
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--white);
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.1);
+}
+
+.logo-container {
+    width: fit-content;
+    padding: 1em 1em 1em 1em;
+    text-align: center;
+}
+
+.logo-a {
+    color: #444;
+    font-weight: 500;
+    font-size: 1.3em;
+}
+
+/* Sticky Title */
+.title {
+    position: sticky;
+    top: 0;
+    margin: 20px;
+    width: auto;
+}
+
+.title-container {
+    width: fit-content;
+    background-color: var(--white);
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.3);
+    border-radius: 0.5rem;
+ 
+}
+.title form {
+  
+    padding-bottom: 1em;
+}
+
+.title-body {
+    margin: .5em .5em .5em .5em;
+    border: 1px solid;
+}
+
+.title h1 {
+    font-size: 1.4rem;
+    font-weight: 500;
+    padding: 1em 1em 0em 1em;
+}
+.title input { 
+    width: 120px;
+    margin: 0 1em 0 1em;
+}
+
+.title select {
+    width: 140px;
+}
+.title button {
+    background-color: var(--blue);
+    border: 1x solid;
+color: var(--white);
+margin: 0em 1em 0em 1em;
+}
+
+/* Main */
+.main-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1em 1em 1em 1em;
+}
+
+.main-content button {
+    padding: 0 10px;
+    transition: 1s ease-in-out all;
+}
+
+.main-content button:hover {
+    background-color: var(--blue);
+}
+
+.main-container {
+    padding: 2rem 3rem;
+    overflow: auto;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.3);
+    border-radius: 0.5rem;
+    height: 400px;
+    overflow-y: auto;
+    display: block;
+}
+
+/* Table */
+.table {
+    width: 600px;
+}
+
+.table i {
+    font-size: 20px;
+    margin: auto;
+}
+
+.table button {
+    margin: 0 .25rem 0 .25rem;
+    position: inherit;
+    background-color: var(--yellow);
+}
+
+.table i:hover {
+    font-size: 2rem;
+    transition: .25s ease-in-out;
+}
+
+.table th:hover {
+color: gold;
+transition: 0.5s ease-in-out;
+cursor: pointer;
+}
+
+.estado-column {
+    width: 150px;
+    /* Establece el ancho máximo de la celda */
+    overflow: hidden;
+    /* Oculta el texto que excede el ancho máximo */
+    text-overflow: ellipsis;
+    /* Trunca el texto si excede el ancho máximo */
+    white-space: nowrap;
+    /* Evita que el texto se divida en múltiples líneas */
+
+}
